@@ -49,3 +49,7 @@
 
 ### Association
 - belongs_to :schedule_group
+
+
+aaaaaaaaaaaa
+
