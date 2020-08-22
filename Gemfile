@@ -77,3 +77,5 @@ gem 'devise'
 gem 'active_hash'
 gem 'unicorn'
 gem "bulma-rails", "~> 0.9.0"
+gem 'carrierwave'
+gem 'rmagick'
