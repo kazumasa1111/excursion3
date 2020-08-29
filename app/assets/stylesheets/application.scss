@@ -18,3 +18,13 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
  @import 'registrations/new';
+ @import 'header';
+ @import 'reset';
+
+
+
+
+
+ .notification:not(:last-child){
+	margin-bottom: 0;
+}

@@ -79,3 +79,5 @@ gem 'unicorn'
 gem "bulma-rails", "~> 0.9.0"
 gem 'carrierwave'
 gem 'rmagick'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"

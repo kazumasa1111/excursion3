@@ -1,15 +1,8 @@
-<section class="hero is-info">
-  <div class='hero-body'>
-    <div class="container">
-      <h1 class="title">
-        新規登録画面
-        <h2 class="title">
-        -大人の修学旅行へようこそー
-        </h2>
-      </h1>
-    </div>
-  </div>
+<section class='hero-body'>
+  <h1 class="title">新規登録画面</h1>
+  <p class="heading-sentence">ー大人の修学旅行へようこそー</p>
 </section>
+
 
 <section class="section">
   <div class="container">
@@ -22,7 +15,7 @@
         <div class="field">
           <%= f.label :氏名, class: "label" %>
           <p class="control has-icons-left">
-            <%= f.text_field :name, autofocus: true, autocomplete: "email", :placeholder => "氏名", class: "input" %>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", :placeholder => "氏名", class: "input" %>
             <span class="icon is-small is-left">
               <i class="fas fa-user"></i>
             </span>
