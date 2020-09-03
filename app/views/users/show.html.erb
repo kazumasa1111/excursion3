@@ -1,96 +1,61 @@
-<div class="main">
-        <div class="photo">
-          <%= attachment_image_tag @user, :image?, fallback: "noimage.png", class: "image is-rounded" %>
-          <ul class="details-nav">
-            <li>
-              <div id="like">
-                    <button type="button" id="modal-open" onclick="window.alert('サービスの利用にはログインが必要です');location.href='/ja/login_required';">
-                      <img src="https://s3-ap-northeast-1.amazonaws.com/triptriple/images/nav_details_recipe_01.png" alt="いいね">
-                      <span>いいね</span>
-                    </button>
-                    <label>7</label>
-              </div>
-            </li>
-            <li>
-              <button type="button" onclick="window.location.href='#question_anchor'">
-                <img src="https://s3-ap-northeast-1.amazonaws.com/triptriple/images/nav_details_recipe_02.png" alt="質問・お礼">
-                <span>質問・お礼</span>
-              </button>
-              <label class="qa-label">0</label>
-            </li>
-            <li>
-              <button type="button" class="modal-open" data-modal="modal-share">
-                <img src="https://s3-ap-northeast-1.amazonaws.com/triptriple/images/nav_details_recipe_03.png" alt="送る">
-                <span>送る</span>
-              </button>
-            </li>
-            <li id="save">
-                  <button type="button" onclick="window.alert('サービスの利用にはログインが必要です');location.href='/ja/login_required';">
-                    <img src="https://s3-ap-northeast-1.amazonaws.com/triptriple/images/nav_details_recipe_04.png" alt="保存">
-                    <span>保存</span>
-                  </button>
-            </li>
-          </ul>
-          <div class="like-count">
-            <span class="modal-open" data-modal="modal-liked-user" style="cursor: pointer;">いいね7件</span>
-                <span style="float: right;">2020年08月30日</span>
-          </div>
+<div class="main-profile">
+  <div class="head-area">
+    <h1>
+      <i class="fas fa-user-circle"></i>
+      <%= @user.nickname%>のプロフィール                
+    </h1>
+    <% if @user.id == current_user.id %>
+      <%= link_to "編集", edit_user_path(@user), class: "edit" %>
+    <% end %>
+  </div>
+  <div class="profile-area">
+    <div class="myimage">
+      <%= attachment_image_tag @user, :image?, fallback: "noimage.png" %>
+    </div>
+    <div class="profile-inner" style="">
+      <%= attachment_image_tag @user, :image?, fallback: "noimage.png" %>
+      <div class="user-main">
+        <div class="name">
+          <p><%= @user.nickname%></p>
         </div>
-        <!--/.photo-->
-        <div class="text">
-          <p>小学生の頃、「天正の少年遣欧使節」を読んで、なんとなくポルトガルに行ってみたいなと思っていました。
-              今回、旅を決めてから、再び何冊かの本を読んだので、現地では涙が滲んできました。
-              海鮮ものとナタとサングリアが美味しいポルトガルでした。
-              時間があれば、コインブラにも行きたかったので、そこはまたのお楽しみに。。。
+        <div class="user-comment" style="min-height: 10px;">
+          <p>娘とだったり、母とだったり、たまーに友達と。
+              そしておひとりさまも多い、旅行です（╹◡╹）
+              夫と息子は鉄っちゃんなので、最近はあまり一緒に旅行してないです^_^;
+              もしよければ、ブログにも遊びにきてください(๑&gt;◡&lt;๑)
           </p>
-          <div class="user">
-            <a href="/ja/users/517">
-              <span class="icon" style="background-image: url('https://s3-ap-northeast-1.amazonaws.com/triptriple/profile/20181011102406440.jpeg');"></span>
-              <span class="name">ribbon</span>
-            </a>
-            <span class="country"><img class="national_flag" src="https://s3-ap-northeast-1.amazonaws.com/triptriple/national_flag/Japan.gif"></span>
-            <span class="photolist">
-              <a href="/ja/recipes/3044/list_photo">
-                写真一覧
-                <label style="color: #000;cursor: pointer">59</label>
-              </a>
-            </span>
-          </div>
-          <table>
-            <tbody><tr>
-              <th>旅のきっかけ</th>
-              <td><p>「ここに地終わり、海はじまる」のユーラシア大陸の最西端に行ってみよう！で。</p></td>
-            </tr>
-            <tr>
-              <th>年/月
-                (何日間)
-              </th>
-              <td>2020年01月(6日間)</td>
-            </tr>
-            <tr>
-              <th>人数</th>
-              <td>2人 ( 2 女性 )
-                　　50代</td>
-            </tr>
-            <tr>
-              <th>都市</th>
-              <td>リスボン(ポルトガル)</td>
-            </tr>
-            <!--
-            <tr>
-              <th>
-                <img src="https://s3-ap-northeast-1.amazonaws.com/triptriple/images/icon_sad.png">失敗した
-              </th>
-              <td><p></p></td>
-            </tr>
-            <tr>
-              <th>
-                <img src="https://s3-ap-northeast-1.amazonaws.com/triptriple/images/icon_smile.png">うまくいった
-              </th>
-              <td><p></p></td>
-            </tr>
-            -->
-          </tbody></table>
         </div>
-        <!--/.text-->
       </div>
+    </div>
+    <div class="user-data">
+      <ul>
+        <li>
+          <button name="button" type="button" onclick="window.alert('サービスの利用にはログインが必要です');location.href='/ja/login_required';" class="btn-follow">
+            <i class="fas fa-grin-hearts"></i>いいねする
+          </button>            
+        </li>
+        <li>
+          いいね:13
+        </li>
+      </ul>
+    </div>
+    <% if @user.id == current_user.id %>
+      <div class="all-profile">
+        <table>
+          <tr>
+            <th>email</th>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td><%= @user.nickname %></td>
+          </tr>
+          <tr>
+            <th>Birthday</th>
+            <td><%= @user.birthday%></td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>
