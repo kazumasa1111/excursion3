@@ -1,3 +1,161 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-profile{
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  list-style-type: none;
+  .head-area{
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 96px;
+    h1{
+      font-size: 2.2rem;
+      text-indent: 2.5rem;
+      margin: 35px 0 0;
+      float: left;
+      font-weight: bold;
+    }
+    .edit {
+      display: inline-block;
+      padding: 0.5em 1em;
+      text-decoration: none;
+      color: #52c2d0;
+      border: dashed 1px #52c2d0;
+      border-radius: 3px;
+      transition: .4s;
+      margin: 35px 0 0 20px;
+      &:hover {
+        border-style: dotted;
+        color: #52c2d0;
+      }
+    }
+  }
+  .profile-area{
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    .myimage{
+      img{
+        width: 100%;
+        height: 250px;
+        background-size: cover;
+        object-fit: cover;
+      }
+    }
+    .profile-inner{
+      position: relative;
+      width: 1000px;
+      margin: 0 auto;
+      padding: 20px 183px 0 267px;
+      box-sizing: border-box;
+      img{
+        position: absolute;
+        top: -33px;
+        left: 88px;
+        width: 150px;
+        height: 150px;
+        display: inline-block;
+        background-color: #ccc;
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin: 5px;
+        background-size: cover;
+        border-radius: 150px;
+        border: #ddd solid 2px;
+        object-fit: cover;
+      }
+      .user-main{
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        width: 600px;
+        .name{
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-size: 2.4rem;
+          p{
+            font-size: 2.2rem;
+            font-weight: bold;
+          }
+        }
+        .user-comment{
+          margin-top: 50px;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .user-data{
+      width: 740px;
+      margin: 10px auto;
+      .btn-follow{
+        background-color: #52c2d0;
+        width: 195px;
+        border-radius: 10px;
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-align: center;
+        box-sizing: border-box;
+        color: #FFF;
+        cursor: pointer;
+      }
+      ul{
+        float: right;
+        display: inline-block;
+        font-size: 1.6rem;
+        font-weight: bold;
+        li{
+          display: inline-block;
+          margin-right: 42px;
+          }
+      }
+    }
+    .all-profile{
+      position: relative;
+      width: 1000px;
+      margin: 0 auto;
+      margin-top: 100px;
+      overflow: hidden;
+      height: 100%;
+      table {
+        width: 75%;
+        border-collapse: collapse;
+        tr {
+          border-bottom: solid 2px white;
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+        th {
+          position: relative;
+          text-align: left;
+          width: 30%;
+          background-color: #52c2d0;
+          color: white;
+          text-align: center;
+          padding: 10px 0;
+          &:after {
+            display: block;
+            content: "";
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            top: calc(50% - 10px);
+            right: -10px;
+            border-left: 10px solid #52c2d0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+          }
+        }     
+        td {
+          text-align: left;
+          width: 70%;
+          text-align: center;
+          background-color: #eee;
+          padding: 10px 0;
+        }
+      }
+    }
+  }
+}
