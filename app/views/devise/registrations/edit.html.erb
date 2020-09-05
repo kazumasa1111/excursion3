@@ -1,43 +1,73 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<section class='hero-body'>
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+</section>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+
+        <div class="field">
+          <%= f.label :氏名, class: "label" %>
+          <p class="control has-icons-left">
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", :placeholder => "氏名", class: "input" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <%= f.label :メールアドレス, class: "label" %>
+          <p class="control has-icons-left">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "メールアドレス", class: "input" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <%= f.label :プロフィール, class: "label" %>
+          <p class="control has-icons-left">
+            <%= f.text_area :profile, autofocus: true, autocomplete: "profile", :placeholder => "プロフィール", class: "input" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-id-card"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="label-box__inner">
+          <%= f.label :image do%>プロフィール画像
+            <%= f.file_field :image, class: "input-default" %>
+            <div class="boxFileSelect">
+              <i class="far fa-images "></i>プロフィール画像
+            </div>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= f.label :ニックネーム, class: "label" %>
+          <p class="control has-icons-left">
+            <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", :placeholder => "ニックネーム", class: "input" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-id-card-alt"></i>
+            </span>
+          </p>
+        </div>
+
+
+        <div class="actions">
+          <%= f.submit "Upload", class: "button is-success" %>
+        </div>
+        <% end %>
+
+        <%= link_to "Back", :back %>
+      </div>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</section>

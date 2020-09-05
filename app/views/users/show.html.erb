@@ -5,25 +5,29 @@
       <%= @user.nickname%>のプロフィール                
     </h1>
     <% if @user.id == current_user.id %>
-      <%= link_to "編集", edit_user_path(@user), class: "edit" %>
+      <%= link_to "編集", edit_user_registration_path, class: "edit" %>
     <% end %>
   </div>
   <div class="profile-area">
     <div class="myimage">
-      <%= attachment_image_tag @user, :image?, fallback: "noimage.png" %>
+      <% if @user.image.blank? %>
+        <%= image_tag 'noimage.png'%>  
+      <% else %>
+        <%= image_tag @user.image.url %>
+      <% end %>
     </div>
     <div class="profile-inner" style="">
-      <%= attachment_image_tag @user, :image?, fallback: "noimage.png" %>
+      <% if @user.image.blank? %>
+        <%= image_tag 'noimage.png'%>  
+      <% else %>
+        <%= image_tag @user.image.url %>
+      <% end %>
       <div class="user-main">
         <div class="name">
-          <p><%= @user.nickname%></p>
+          <p><%= @user.nickname %></p>
         </div>
         <div class="user-comment" style="min-height: 10px;">
-          <p>娘とだったり、母とだったり、たまーに友達と。
-              そしておひとりさまも多い、旅行です（╹◡╹）
-              夫と息子は鉄っちゃんなので、最近はあまり一緒に旅行してないです^_^;
-              もしよければ、ブログにも遊びにきてください(๑&gt;◡&lt;๑)
-          </p>
+          <p><%= @user.profile %></p>
         </div>
       </div>
     </div>
@@ -48,7 +52,7 @@
           </tr>
           <tr>
             <th>Name</th>
-            <td><%= @user.nickname %></td>
+            <td><%= @user.name %></td>
           </tr>
           <tr>
             <th>Birthday</th>

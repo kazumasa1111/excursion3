@@ -18,7 +18,11 @@
               <div class="card-image">
                 <figure class="image">
                   <%= link_to user_path(user) do %>
-                    <%= attachment_image_tag user, :image?, fallback: "noimage.png" %>
+                    <% if user.image.blank? %>
+                      <%= image_tag 'noimage.png'%>  
+                    <% else %>
+                      <%= image_tag user.image.url %>
+                    <% end %>
                   <% end %>
                 </figure>
               </div>
