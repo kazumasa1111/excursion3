@@ -3,8 +3,19 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def new
+    @user.image.new
+  end
+
+  def create
+    @user.image.new
+    @user = User.new(post_params)
+  end
+    
+
   def show
     @user = User.find(params[:id])
+    @user = current_user
   end
 
   def edit
@@ -14,5 +25,12 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(user_params)
+    @user.image = params[:image].read
+  end
+
+  private
+
+  def post_params
+    params.require(:user).permit(:image)
   end
 end

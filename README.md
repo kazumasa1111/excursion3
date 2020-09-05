@@ -6,9 +6,9 @@
 |name|string|null:false|
 |email|string|null: false|
 |password|string|null:false|
-|nickname|string|null: false|
+|nickname|string||
 |image|string||
-|birthday|date|null:false|
+|birthday|date||
 
 ### Association
 - has_many :schedules
@@ -20,8 +20,8 @@
 |date|date|null:false|
 |address|string|null: false|
 |lodging|string|null:false|
-|bookmark|string|null: false|
-|budget|integer|null: false|
+|bookmark|string||
+|budget|integer||
 
 ### Association
 - belongs_to :user
