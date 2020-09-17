@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_05_080858) do
+ActiveRecord::Schema.define(version: 2020_09_12_071410) do
 
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
     t.string "address", null: false
     t.string "lodging", null: false
-    t.string "bookmark"
+    t.text "bookmark"
     t.integer "budget"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "image"
     t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 

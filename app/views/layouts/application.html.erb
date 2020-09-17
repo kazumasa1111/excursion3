@@ -51,7 +51,10 @@
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
-                  <%= link_to "予定する", "", class: "button is-warning is-light" %>
+                  <%= link_to "マイページ", "/users/#{current_user.id}", class: "button is-warning is-light" %>
+                </p>
+                <p class="control">
+                  <%= link_to "予定する", new_schedule_path, class: "button is-warning is-light" %>
                 </p>
                 <p class="control">
                   <%= link_to "探す", users_path, class: "button is-warning is-light" %>
