@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: excursion3_production
-  username: excursion3
-  password: <%= ENV['EXCURSION3_DATABASE_PASSWORD'] %>
+  database: freemarket_sample_00a_production
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock

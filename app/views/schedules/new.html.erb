@@ -1,13 +1,49 @@
-<div class="contents row">
-  <div class="container">
-    <%= form_with(model: @tweet, local: true) do |form| %>
-      <h3>
-        投稿する
-      </h3>
-      <%= form.text_field :name, placeholder: "Nickname" %>
-      <%= form.text_field :image, placeholder: "Image Url" %>
-      <%= form.text_area :text, placeholder: "text" , rows: "10" %>
-      <%= form.submit "SEND" %>
-    <% end %>
+
+
+<div class="content">
+  <div class="modal_underlay">
+    <div class="head-area">
+      <h2>-<i class="fas fa-plane"></i>修学旅行を企画する-</h2>
+    </div>
   </div>
 </div>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <%= form_with(model: @schedule, local: true) do |f| %>
+          <div class="field">
+            <%= f.label :title, "日付", class: "label" %>
+            <%= f.date_select :date, {}, class: 'form-control' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :title, "行き先", class: "label" %>
+            <%= f.text_field :address, class: "input", :placeholder => "例:沖縄"%>
+          </div>
+
+          <div class="field">
+            <%= f.label :body, "宿泊", class: "label" %>
+            <%= f.text_area :lodging, class: "input",:placeholder => "例:2泊3日" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :body, "旅のしおり", class: "label" %>
+            <%= f.text_area :bookmark, class: "textarea" %>
+          </div>
+
+          <div class="label-box__inner">
+            <%= f.label :image do%>画像
+              <%= f.file_field :image, class: "input-default" %>
+                <div class="boxFileSelect">
+                  <i class="far fa-images "></i>画像
+                </div>
+            <% end %>
+          </div>
+          <%= f.submit '投稿', class: "button is-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

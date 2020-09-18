@@ -22,6 +22,8 @@
 |lodging|string|null:false|
 |bookmark|string||
 |budget|integer||
+|user_id|reference|foreign_key: true|
+|images|string||
 
 ### Association
 - belongs_to :user

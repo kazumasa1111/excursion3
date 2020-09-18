@@ -1,83 +1,39 @@
 <h1 class="top-title"><span>修学旅行予定一覧</span></h1>
-<div class="body">
-  <div id="tripnote-18457" class="col-md-12 col-sm-12 col-xs-12 tripnoteBoxWrapper">
-    <div class="tripnoteBoxInfoWrapper col-md-9 col-sm-8 col-xs-8">
-      <div class="tripnoteMainInfo">
-        <div class="tripnoteInfo">
-          <h3 class="titleWrapper">
-            <a href="#">-okinawa2日間-</a>
-          </h3>
-        </div>
-        <div class="tripnote-main">
-          <div class="tripnote-desc">
-            <p>毎日忙しく流されるままに過ごすことに疑問を感じ、自分を解放するために、のんびり・マイペースにリラックスして過ごすために、思いきってわがまま女子一人旅！南国リゾートグアム島へ２泊３日のショートトリップ♪
-              【旅費】成田⇔グアムAIR+ホテル（デラックスオーシャンビュールーム）パック価格で82,000円
-              【食費】10,000円以内
-              【滞在中の移動費】赤いシャトルバス（1日乗り放題)1,500円
-              【スパ・ショッピング費】65,000円
-            </p>
-            <div class="detail-overflow"></div>
+  <% @schedules.each do |schedule| %>
+  <div class="body">
+    <div id="tripnote-18457" class="col-md-12 col-sm-12 col-xs-12 tripnoteBoxWrapper">
+      <div class="tripnoteBoxInfoWrapper col-md-9 col-sm-8 col-xs-8">
+        <div class="tripnoteMainInfo">
+          <div class="tripnoteInfo">
+            <h3 class="titleWrapper">
+              <%= link_to schedule.address, '#', method: :get %>
+            </h3>
           </div>
-          <%= image_tag 'view.jpeg', :size =>'275x180' %>
-          <%= image_tag 'view2.jpeg', :size =>'275x180' %>
-          <%= image_tag 'view.jpeg', :size =>'275x180' %>
+          <div class="tripnote-main">
+            <div class="tripnote-desc">
+              <p><%= schedule.bookmark%></p>
+              <div class="detail-overflow"></div>
+            </div>
+            <%= image_tag schedule.image.url, :size =>'275x180' %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="bottominformation">
-    <div class="name">
-      nickname:kazumasa
-    </div>
-    <div class="lodging">
-      宿泊:２泊３日
-    </div>
-    <div class="icon">
-      <i class="fas fa-heart"></i>
-    </div>
-    <div class="iconcount">
-      :150いいね
-    </div>
-  </div>
-</div>
-<div class="body">
-  <div id="tripnote-18457" class="col-md-12 col-sm-12 col-xs-12 tripnoteBoxWrapper">
-    <div class="tripnoteBoxInfoWrapper col-md-9 col-sm-8 col-xs-8">
-      <div class="tripnoteMainInfo">
-        <div class="tripnoteInfo">
-          <h3 class="titleWrapper">
-            <a href="#">-okinawa2日間-</a>
-          </h3>
-        </div>
-        <div class="tripnote-main">
-          <div class="tripnote-desc">
-            <p>毎日忙しく流されるままに過ごすことに疑問を感じ、自分を解放するために、のんびり・マイペースにリラックスして過ごすために、思いきってわがまま女子一人旅！南国リゾートグアム島へ２泊３日のショートトリップ♪
-              【旅費】成田⇔グアムAIR+ホテル（デラックスオーシャンビュールーム）パック価格で82,000円
-              【食費】10,000円以内
-              【滞在中の移動費】赤いシャトルバス（1日乗り放題)1,500円
-              【スパ・ショッピング費】65,000円
-            </p>
-            <div class="detail-overflow"></div>
-          </div>
-          <%= image_tag 'view.jpeg', :size =>'275x180' %>
-          <%= image_tag 'view2.jpeg', :size =>'275x180' %>
-          <%= image_tag 'view.jpeg', :size =>'275x180' %>
-        </div>
+    <div class="bottominformation">
+      <div class="name">
+        nickname:<%= schedule.user.nickname %>
+      </div>
+      <div class="lodging">
+        宿泊:<%= schedule.lodging%>
+      </div>
+      <div class="icon">
+        <i class="fas fa-heart"></i>
+      </div>
+      <div class="iconcount">
+        :150いいね
       </div>
     </div>
   </div>
-  <div class="bottominformation">
-    <div class="name">
-      nickname:kazumasa
-    </div>
-    <div class="lodging">
-      宿泊:２泊３日
-    </div>
-    <div class="icon">
-      <i class="fas fa-heart"></i>
-    </div>
-    <div class="iconcount">
-      :150いいね
-    </div>
-  </div>
+  <% end %>
 </div>
+
