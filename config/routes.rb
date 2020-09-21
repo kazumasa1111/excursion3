@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   } 
   root to: "home#index"
     resources :users
-    resources :schedules
+    resources :schedules do 
+      resource :favorites, only: [:create, :destroy]
+    end
 end
 
 
