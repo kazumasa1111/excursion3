@@ -13,6 +13,7 @@
 ### Association
 - has_many :schedules
 - has_many :schedules_groups
+- has_many :favorite
 
 ## schedulesテーブル
 |Column|Type|Options|
@@ -28,12 +29,25 @@
 ### Association
 - belongs_to :user
 - belongs_to :schedule_group
+- has_many :favorite
 
 ## schedules_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|user_id|reference|foreign_key: true|
+|schedules_id|reference|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :schedule_group
+
+## favoriteテーブル
+|Column|Type|Options|
+|------|----|-------|
 |user_id|integer|null:false|
 |schedules_id|integer|null: false|
+
+
 
 
 ### Association

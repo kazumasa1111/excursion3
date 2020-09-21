@@ -26,11 +26,20 @@
       <div class="lodging">
         宿泊:<%= schedule.lodging%>
       </div>
-      <div class="icon">
-        <i class="fas fa-heart"></i>
-      </div>
-      <div class="iconcount">
-        :150いいね
+        <% if current_user.already_favorited?(schedule) %>
+          <%= link_to schedule_favorites_path(schedule), method: :delete do %>
+            <div class="icon">
+              <i class="fas fa-heart"></i>
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to schedule_favorites_path(schedule), method: :post do %>
+            <div class="icon">
+              <i class="fas fa-heart"></i>
+            </div>
+          <% end %>
+        <% end %>
+        <%= schedule.favorites.count %>
       </div>
     </div>
   </div>
